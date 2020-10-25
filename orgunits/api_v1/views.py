@@ -28,7 +28,7 @@ class OrganizationViewSet(TokenAuthMixin, ModelViewSet):
     @action(methods=["GET"], detail=True)
     def children(self, request, *args, **kwargs):
         """
-        Возвращает родителей запрашиваемой организации
+        Возвращает детей запрашиваемой организации
         """
         item = self.get_object()
         serializer = OrganizationSerializer(item.children(), many=True)
